@@ -8,11 +8,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private Canvas canvas;
     private RectTransform rectTransform; 
     private CanvasGroup canvasGroup;
+    public  Transform objetosEquipablesParent;
+    public Transform espacioInventarioParent;
+    private GameObject[] dropzones;
+    private string dropzoneTag = "dropZone";
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (transform.parent == espacioInventarioParent)
+        {
+            transform.parent = objetosEquipablesParent;
+        }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        transform.SetParent(canvas.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -22,15 +31,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;  
+        canvasGroup.blocksRaycasts = true;
+        if (transform.parent == canvas.transform) 
+        { 
+            transform.SetParent(objetosEquipablesParent);
+            canvasGroup.alpha = 1f;
+        }
+        if (transform.parent == espacioInventarioParent) 
+        {
+            rectTransform.anchoredPosition = espacioInventarioParent.GetComponentInChildren<RectTransform>().position;
+            canvasGroup.alpha = 1f;
+        }
     }
 
     private void Awake()
     {
         rectTransform = GetComponentInChildren<RectTransform>();
-        canvas = GetComponentInParent<Canvas>();
-        canvasGroup = GetComponentInParent<CanvasGroup>();  
+        canvas = FindObjectOfType<Canvas>();
+        canvasGroup = GetComponentInParent<CanvasGroup>();
+        dropzones = GameObject.FindGameObjectsWithTag(dropzoneTag);
     }
     
 }

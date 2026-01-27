@@ -6,16 +6,21 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
+    
+    
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
         if (dropped != null && dropped.CompareTag(requiredTag))
         {
-            dropped.GetComponentInChildren<RectTransform>().position = transform.position;
+            dropped.transform.SetParent(transform.parent);
+            dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
+            
+
         }
         else
         {
-            Debug.Log("Objeto soltado en sitio equivocado");
+            Debug.Log("Error");
         }
     }
 
