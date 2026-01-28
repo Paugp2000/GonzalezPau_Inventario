@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
+    public Transform objetoEquipableParent;
     
     
     public void OnDrop(PointerEventData eventData)
@@ -13,26 +14,13 @@ public class DropArea : MonoBehaviour, IDropHandler
         GameObject dropped = eventData.pointerDrag;
         if (dropped != null && dropped.CompareTag(requiredTag))
         {
-            dropped.transform.SetParent(transform.parent);
+            dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
-            
-
         }
         else
         {
             Debug.Log("Error");
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

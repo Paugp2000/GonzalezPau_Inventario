@@ -8,17 +8,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private Canvas canvas;
     private RectTransform rectTransform; 
     private CanvasGroup canvasGroup;
-    public  Transform objetosEquipablesParent;
-    public Transform espacioInventarioParent;
-    private GameObject[] dropzones;
-    private string dropzoneTag = "dropZone";
+    public Transform objetosEquipablesParent;
+    public Transform espacioInventarioParent ;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (transform.parent == espacioInventarioParent)
-        {
-            transform.parent = objetosEquipablesParent;
-        }
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         transform.SetParent(canvas.transform);
@@ -37,9 +31,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
             transform.SetParent(objetosEquipablesParent);
             canvasGroup.alpha = 1f;
         }
-        if (transform.parent == espacioInventarioParent) 
+       else if (transform.parent == espacioInventarioParent) 
         {
-            rectTransform.anchoredPosition = espacioInventarioParent.GetComponentInChildren<RectTransform>().position;
+            transform.position = espacioInventarioParent.position;
             canvasGroup.alpha = 1f;
         }
     }
@@ -49,7 +43,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         rectTransform = GetComponentInChildren<RectTransform>();
         canvas = FindObjectOfType<Canvas>();
         canvasGroup = GetComponentInParent<CanvasGroup>();
-        dropzones = GameObject.FindGameObjectsWithTag(dropzoneTag);
     }
     
 }
