@@ -9,7 +9,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private RectTransform rectTransform; 
     private CanvasGroup canvasGroup;
     public Transform objetosEquipablesParent;
-    public Transform espacioInventarioParent ;
+    public Transform [] espacioInventarioParent = new Transform [6];
+    public string nombreObjeto;
+    
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -25,16 +27,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true;
-        if (transform.parent == canvas.transform) 
-        { 
-            transform.SetParent(objetosEquipablesParent);
-            canvasGroup.alpha = 1f;
-        }
-       else if (transform.parent == espacioInventarioParent) 
-        {
-            transform.position = espacioInventarioParent.position;
-            canvasGroup.alpha = 1f;
+        for (int i = 0; i < espacioInventarioParent.Length; i++) {
+            canvasGroup.blocksRaycasts = true;
+            if (transform.parent == canvas.transform)
+            {
+                transform.SetParent(objetosEquipablesParent);
+                canvasGroup.alpha = 1f;
+            }
+            else if (transform.parent == espacioInventarioParent[i])
+            {
+                transform.position = espacioInventarioParent[i].position;
+                canvasGroup.alpha = 1f;
+            }
         }
     }
 
@@ -43,6 +47,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         rectTransform = GetComponentInChildren<RectTransform>();
         canvas = FindObjectOfType<Canvas>();
         canvasGroup = GetComponentInParent<CanvasGroup>();
+    }
+
+    public string getNombreObjeto()
+    {
+        return nombreObjeto;
     }
     
 }

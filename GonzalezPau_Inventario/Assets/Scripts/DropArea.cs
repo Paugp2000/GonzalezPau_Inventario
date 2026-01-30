@@ -7,7 +7,7 @@ public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
     public Transform objetoEquipableParent;
-    
+    private string nombreObjetoIntroducido;
     
     public void OnDrop(PointerEventData eventData)
     {
@@ -16,6 +16,8 @@ public class DropArea : MonoBehaviour, IDropHandler
         {
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
+            nombreObjetoIntroducido = dropped.GetComponent<DraggableItem>().getNombreObjeto();
+            Debug.Log(nombreObjetoIntroducido);
         }
         else
         {
