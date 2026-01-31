@@ -136,6 +136,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Gancho
       objectReference: {fileID: 0}
@@ -239,6 +243,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
@@ -439,6 +455,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
@@ -1082,6 +1110,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Arco del Heroe
@@ -1817,6 +1849,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035735064}
   m_CullTransparentMesh: 1
+--- !u!1 &1101171677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101171679}
+  - component: {fileID: 1101171678}
+  m_Layer: 0
+  m_Name: SQLiteDatabaseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1101171678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101171677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad57f30e10473a446933b3212e453807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idUsuarioInventario: 0
+--- !u!4 &1101171679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101171677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 188.25352, y: 379.52817, z: -4.181021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129246588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +2029,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
       objectReference: {fileID: 490382347}
@@ -2012,6 +2101,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Bolsa de bombas
@@ -2101,6 +2194,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: "Vasija M\xE1gica"
@@ -2195,6 +2292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Escudo Hyliano
@@ -2419,6 +2520,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Guantes de Fuerza
       objectReference: {fileID: 0}
@@ -2610,6 +2715,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Bicho teledirigido
       objectReference: {fileID: 0}
@@ -2698,6 +2807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Pluma de Roc
@@ -2989,6 +3102,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
       objectReference: {fileID: 490382347}
@@ -3062,6 +3187,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
@@ -3477,6 +3614,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
     - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 609893187}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: numberOfDropArea
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
+      propertyPath: databaseInicializer
+      value: 
+      objectReference: {fileID: 1101171678}
+    - target: {fileID: 1469321824702997776, guid: ccb71745ad44ad04c932c209a0450e30, type: 3}
       propertyPath: objetoEquipableParent
       value: 
       objectReference: {fileID: 490382347}
@@ -3541,6 +3690,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 609893188}
     m_Modifications:
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: fuerza
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Espada Maestra
@@ -3633,3 +3786,4 @@ SceneRoots:
   - {fileID: 1660832191}
   - {fileID: 609893188}
   - {fileID: 2037499944}
+  - {fileID: 1101171679}
