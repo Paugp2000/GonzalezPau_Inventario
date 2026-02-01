@@ -16,6 +16,14 @@ public class DatabaseInicializer : MonoBehaviour
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
         dbUriInventory = "URI=file:" + Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
-        dbConnection2 = new SqliteConnection(dbUriInventory);
+    }
+    public void Start()
+    {
+        if (File.Exists(dbUriInventory))
+        {
+            SQLiteConnection conn = new SQLiteConnection(dbUriInventory);
+            conn.CreateTable<Item>();
+            conn.CreateTable<Inventario>();
+        }
     }
 }

@@ -30,7 +30,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             nombreObjetoIntroducido = dropped.GetComponent<DraggableItem>().getNombreObjeto();
             fuerzaObjeto = dropped.GetComponent<DraggableItem>().getFuerza();
             Debug.Log(nombreObjetoIntroducido);
-            itemResutante = new Item(numberOfDropArea, nombreObjetoIntroducido, fuerzaObjeto);
+            itemResutante = new Item(numberOfDropArea, nombreObjetoIntroducido,false, fuerzaObjeto, 1);
             inventario.items.Add(itemResutante); 
             if(dropped.transform.parent = canvas.transform)
             {
