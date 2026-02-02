@@ -140,6 +140,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 2038592374}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Gancho
       objectReference: {fileID: 0}
@@ -218,8 +222,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2038592374}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &100960594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 100960593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &210975127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
@@ -1115,6 +1127,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1529877927}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Arco del Heroe
       objectReference: {fileID: 0}
@@ -1193,8 +1209,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529877927}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &661859792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 661859791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &778914398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,6 +2130,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1341058186}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Bolsa de bombas
       objectReference: {fileID: 0}
@@ -2184,8 +2212,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1341058186}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1341058185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1341058184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1341058186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341058185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 9
+  nombre: Ocarina
+  acumulable: 0
+  fuerza: 70
+  cantidad: 1
 --- !u!1001 &1437205300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2198,6 +2251,10 @@ PrefabInstance:
       propertyPath: fuerza
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1437205302}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: "Vasija M\xE1gica"
@@ -2277,13 +2334,55 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1437205302}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1437205301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1437205300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1437205302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437205301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 7
+  nombre: Vasija Magica
+  acumulable: 0
+  fuerza: 90
+  cantidad: 1
 --- !u!4 &1529877926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
   m_PrefabInstance: {fileID: 661859791}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1529877927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661859792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 8
+  nombre: Dron Escarabajo
+  acumulable: 0
+  fuerza: 45
+  cantidad: 1
 --- !u!1001 &1583514338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2296,6 +2395,10 @@ PrefabInstance:
       propertyPath: fuerza
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1583514340}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Escudo Hyliano
@@ -2375,8 +2478,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1583514340}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1583514339 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1583514338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1583514340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583514339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 5
+  nombre: Pluma de Roc
+  acumulable: 0
+  fuerza: 60
+  cantidad: 1
 --- !u!1 &1594971158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +2652,10 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1644462782}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Guantes de Fuerza
       objectReference: {fileID: 0}
@@ -2602,8 +2734,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1644462782}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1623310773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1623310772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1625610167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
@@ -2614,6 +2754,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
   m_PrefabInstance: {fileID: 1623310772}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644462782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623310773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 4
+  nombre: Arco Del Heroe
+  acumulable: 0
+  fuerza: 90
+  cantidad: 1
 --- !u!1 &1660832188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,6 +2876,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1710738749}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Bicho teledirigido
       objectReference: {fileID: 0}
@@ -2797,8 +2958,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1710738749}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1710738748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1710738747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1710738749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710738748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 3
+  nombre: Escudo Hyliano
+  acumulable: 0
+  fuerza: 40
+  cantidad: 1
 --- !u!1001 &1716566028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2811,6 +2997,10 @@ PrefabInstance:
       propertyPath: fuerza
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 1716566030}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Pluma de Roc
@@ -2890,8 +3080,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1716566030}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &1716566029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 1716566028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716566030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716566029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 6
+  nombre: Gancho
+  acumulable: 0
+  fuerza: 30
+  cantidad: 1
 --- !u!1 &1724122878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,6 +3552,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
   m_PrefabInstance: {fileID: 100960593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2038592374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100960594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 2
+  nombre: Guantes de fuerza
+  acumulable: 0
+  fuerza: 110
+  cantidad: 1
 --- !u!1 &2072578657
 GameObject:
   m_ObjectHideFlags: 0
@@ -3695,6 +3927,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: itemRel
+      value: 
+      objectReference: {fileID: 6685921496373825307}
+    - target: {fileID: 553614105636504856, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: nombreObjeto
       value: Espada Maestra
       objectReference: {fileID: 0}
@@ -3777,8 +4013,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6685921496373825307}
   m_SourcePrefab: {fileID: 100100000, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+--- !u!1 &6685921496373825306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+  m_PrefabInstance: {fileID: 6685921496373825305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6685921496373825307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685921496373825306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 1
+  nombre: Espada Maestra
+  acumulable: 0
+  fuerza: 150
+  cantidad: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

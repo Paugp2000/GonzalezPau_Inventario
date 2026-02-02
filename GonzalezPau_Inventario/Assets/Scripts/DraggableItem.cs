@@ -10,8 +10,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
     private CanvasGroup canvasGroup;
     public Transform objetosEquipablesParent;
     public Transform [] espacioInventarioParent = new Transform [6];
-    public string nombreObjeto;
-    public int fuerza;
+    public Item itemRel;
     
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -50,13 +49,4 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, 
         canvasGroup = GetComponentInParent<CanvasGroup>();
     }
 
-    public string getNombreObjeto()
-    {
-        return nombreObjeto;
-    }
-    public int getFuerza()
-    {
-        return fuerza;
-    }
-    
 }

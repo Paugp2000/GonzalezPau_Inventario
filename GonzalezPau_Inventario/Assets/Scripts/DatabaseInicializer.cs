@@ -6,6 +6,7 @@ using Unity.VisualScripting.Dependencies.Sqlite;
 using System.Data;
 using System;
 using Mono.Data.Sqlite;
+using System.Data.Common;
 
 public class DatabaseInicializer : MonoBehaviour
 {
@@ -22,8 +23,6 @@ public class DatabaseInicializer : MonoBehaviour
         if (File.Exists(dbUriInventory))
         {
             SQLiteConnection conn = new SQLiteConnection(dbUriInventory);
-            conn.CreateTable<Item>();
-            conn.CreateTable<Inventario>();
         }
     }
 }
