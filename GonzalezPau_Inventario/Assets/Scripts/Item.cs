@@ -9,8 +9,7 @@ public class Item : MonoBehaviour
     
     public string nombre;
 
-    public bool acumulable;
+    public bool equipado;
+    
     public int fuerza;
-
-    public int cantidad;
 }

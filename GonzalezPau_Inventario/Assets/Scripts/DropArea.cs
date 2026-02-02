@@ -30,6 +30,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             Debug.Log(nombreObjetoIntroducido);
             itemResutante = dropped.GetComponent<Item>();
             inventario.items.Add(itemResutante); 
+
             if(dropped.transform.parent = canvas.transform)
             {
                 inventario.items.Remove(itemResutante);

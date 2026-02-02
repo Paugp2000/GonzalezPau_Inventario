@@ -9,8 +9,8 @@ public class Inventario
     {
         this.id_inventario = id;    
     }
-    [PrimaryKey, AutoIncrement] public int id_inventario { get; set; }
-    [Indexed] public int id_item { get; set; }
+    public int id_inventario { get; set; }
+    public int id_item { get; set; }
 
     public List<Item> items { get; set; }
 }
