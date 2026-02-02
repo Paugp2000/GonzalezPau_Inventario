@@ -14,11 +14,13 @@ public class DropArea : MonoBehaviour, IDropHandler
     private Item itemResutante;
     private Inventario inventario;
     public DatabaseInicializer databaseInicializer;
+    public LoadInventory inventory;
     public Canvas canvas;
+    public DatabaseSaver sistemaDeGuardado;
 
     void Start()
     {
-         inventario = new Inventario(databaseInicializer.idUsuarioInventario); 
+        inventario = inventory.inventarioActual;
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -29,11 +31,13 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             Debug.Log(nombreObjetoIntroducido);
             itemResutante = dropped.GetComponent<Item>();
-            inventario.items.Add(itemResutante); 
+            inventario.items.Add(itemResutante);
+            sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
             if(dropped.transform.parent = canvas.transform)
             {
                 inventario.items.Remove(itemResutante);
+                sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);    
             }
         }
         else

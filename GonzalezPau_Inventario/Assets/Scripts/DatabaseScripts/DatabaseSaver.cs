@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Common;
 using UnityEngine;
 using Mono.Data.Sqlite;
+using System.IO;
 
 public class DatabaseSaver : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DatabaseSaver : MonoBehaviour
     private int idUsuarioInvetario;
     private string databasePath;
     private IDbConnection dbConnection3;
+    public LoadInventory loader;
     private void Awake()
     {
         idUsuarioInvetario = DatabaseInicializer.idUsuarioInventario;
@@ -46,5 +48,38 @@ public class DatabaseSaver : MonoBehaviour
         IDbCommand cmdRemove = dbConnection3.CreateCommand();
         cmdRemove.CommandText = "DELETE FROM Items WHERE idItem = @idItemRemove);";
         cmdRemove.Parameters.Add(new SqliteParameter("@idItemRemove", itemABorrar.id_item));
+        try
+        {
+            cmdRemove.ExecuteNonQuery();
+        }
+        catch
+        {
+            Debug.LogError("Item no eliminado correctamente");
+        }
+        dbConnection3.Close();
+    }
+    public Inventario loadInvenario()
+    {
+        Inventario inventarioActual = new Inventario(idUsuarioInvetario);
+        dbConnection3.Open();
+        for (int i = 0; i < 9; i++) 
+        {
+            try
+            {
+                IDbCommand cmdLoad = dbConnection3.CreateCommand();
+                cmdLoad.CommandText = "SELECT idItem FROM Items WHERE idItem = @param AND isInInventory = TRUE;";
+                cmdLoad.Parameters.Add(new SqliteParameter("@param", i));
+                using (IDataReader reader = cmdLoad.ExecuteReader())
+                {
+                    inventarioActual.items.Add(loader.allItems[int.Parse(reader.GetString(0))]);
+                }
+            }
+            catch
+            {
+                Debug.Log("Item no disponible en el inventario");
+            }
+        }
+        return inventarioActual;    
+
     }
 }

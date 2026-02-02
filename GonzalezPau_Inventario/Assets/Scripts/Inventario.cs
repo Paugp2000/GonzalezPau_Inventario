@@ -10,7 +10,6 @@ public class Inventario
         this.id_inventario = id;    
     }
     public int id_inventario { get; set; }
-    public int id_item { get; set; }
 
     public List<Item> items { get; set; }
 }

@@ -13,6 +13,7 @@ public class DatabaseInicializer : MonoBehaviour
     public int idUsuarioInventario;
     private IDbConnection dbConnection2;
     private string dbUriInventory;
+    public LoadInventory loading;
     private void Awake()
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
@@ -28,9 +29,7 @@ public class DatabaseInicializer : MonoBehaviour
         }
         else
         {
-            dbConnection2 = new SqliteConnection(dbUriInventory);
-            dbConnection2.Open();
-            
+            loading.LoadIfDatabaseExists();
         }
     }
     public void CreateDatabase()

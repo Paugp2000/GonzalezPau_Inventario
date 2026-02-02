@@ -80,10 +80,12 @@ public class LoginSQLController : MonoBehaviour
     public void Login()
     {
         dbConnection.Open();
+        string userNameBetweenDots = "\"" + nombreUsuario.text + "\"";
+
         using (IDbCommand cmd = dbConnection.CreateCommand())
         {
-            cmd.CommandText = "SELECT Password FROM Users WHERE Username = @user";
-            cmd.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
+            cmd.CommandText = "SELECT password FROM Users WHERE Username = " + userNameBetweenDots + ";";
+            //cmd.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
 
             using (IDataReader reader = cmd.ExecuteReader())
             {
@@ -93,19 +95,22 @@ public class LoginSQLController : MonoBehaviour
                     dbConnection.Close();
                     return;
                 }
-
                 string storedPass = reader.GetString(0);
 
                 if (storedPass == contraseña.text)
                 {
-                    dbConnection.Close();
                     using (IDbCommand cmr = dbConnection.CreateCommand())
                     {
-                        cmr.CommandText = "SELECT UserID FROM Users WHERE Username = @user";
-                        using (IDataReader reader2 = cmr.ExecuteReader())
+                        cmr.CommandText = "SELECT UserID FROM Users WHERE Username = @User";
+                        cmr.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
+
+                        IDataReader reader2 = cmr.ExecuteReader();
+                        while (reader2.Read())
                         {
-                            idUsuario = int.Parse(reader2.GetString(0));
+                            Debug.Log(reader2.GetInt32(0));
+                            idUsuario = reader2.GetInt32(0);
                         }
+
                     }
                     SceneManager.LoadScene("InventoryScene");
                 }

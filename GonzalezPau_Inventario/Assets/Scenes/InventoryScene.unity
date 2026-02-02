@@ -179,6 +179,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEquipable  II
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8354097
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16509432
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 130
@@ -1166,6 +1178,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEquipable VIII
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.28025985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8867924
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.774304
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 136
@@ -1883,6 +1907,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1101171679}
   - component: {fileID: 1101171678}
+  - component: {fileID: 1101171681}
+  - component: {fileID: 1101171680}
   m_Layer: 0
   m_Name: SQLiteDatabaseController
   m_TagString: Untagged
@@ -1903,6 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idUsuarioInventario: 0
+  loading: {fileID: 1101171681}
 --- !u!4 &1101171679
 Transform:
   m_ObjectHideFlags: 0
@@ -1918,6 +1945,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101171680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101171677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad3c002f8ed10c4dae88f3736ae07b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DatabaseInicializer: {fileID: 1101171678}
+  loader: {fileID: 1101171681}
+--- !u!114 &1101171681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101171677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2311ea2d4bd4ddd49856dff95112988b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allItems: []
+  databaseInicializer: {fileID: 1101171678}
+  espacioInventarioParent:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  puntoDeGuardado: {fileID: 1101171680}
 --- !u!1 &1129246588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2232,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEquipable IX
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.55712056
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28123888
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71
@@ -2236,9 +2311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 9
   nombre: Ocarina
-  acumulable: 0
+  equipado: 0
   fuerza: 70
-  cantidad: 1
 --- !u!1001 &1437205300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2290,6 +2364,18 @@ PrefabInstance:
     - target: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_Name
       value: ObjetoEquipable VII
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.28428763
       objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2358,9 +2444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 7
   nombre: Vasija Magica
-  acumulable: 0
+  equipado: 0
   fuerza: 90
-  cantidad: 1
 --- !u!4 &1529877926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
@@ -2380,9 +2465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 8
   nombre: Dron Escarabajo
-  acumulable: 0
+  equipado: 0
   fuerza: 45
-  cantidad: 1
 --- !u!1001 &1583514338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2434,6 +2518,18 @@ PrefabInstance:
     - target: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_Name
       value: ObjetoEquipable  V
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.31287822
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6612844
       objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2502,9 +2598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 5
   nombre: Pluma de Roc
-  acumulable: 0
+  equipado: 0
   fuerza: 60
-  cantidad: 1
 --- !u!1 &1594971158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2786,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEquipable IV
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18752226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.41298154
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71
@@ -2768,9 +2875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 4
   nombre: Arco Del Heroe
-  acumulable: 0
+  equipado: 0
   fuerza: 90
-  cantidad: 1
 --- !u!1 &1660832188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,6 +3021,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObjetoEquipable  III
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6017612
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.43867922
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 193
@@ -2982,9 +3100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 3
   nombre: Escudo Hyliano
-  acumulable: 0
+  equipado: 0
   fuerza: 40
-  cantidad: 1
 --- !u!1001 &1716566028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3036,6 +3153,18 @@ PrefabInstance:
     - target: {fileID: 888754551559553053, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_Name
       value: ObjetoEquipable VI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6558265
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3485226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3104,9 +3233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 6
   nombre: Gancho
-  acumulable: 0
+  equipado: 0
   fuerza: 30
-  cantidad: 1
 --- !u!1 &1724122878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,9 +3694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 2
   nombre: Guantes de fuerza
-  acumulable: 0
+  equipado: 0
   fuerza: 110
-  cantidad: 1
 --- !u!1 &2072578657
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +4097,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'ObjetoEquipable '
       objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2691349
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473412386563604548, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.37889498
+      objectReference: {fileID: 0}
     - target: {fileID: 6896650629514552733, guid: efb02fc17ed6cd84da69ecf1b39e077d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72
@@ -4037,9 +4176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_item: 1
   nombre: Espada Maestra
-  acumulable: 0
+  equipado: 0
   fuerza: 150
-  cantidad: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
