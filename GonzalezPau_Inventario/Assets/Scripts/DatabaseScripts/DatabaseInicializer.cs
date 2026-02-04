@@ -14,10 +14,11 @@ public class DatabaseInicializer : MonoBehaviour
     private IDbConnection dbConnection2;
     private string dbUriInventory;
     public LoadInventory loading;
+    private Inventario inventarioBase;
     private void Awake()
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
-        dbUriInventory = "URI=file:" + Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
+        dbUriInventory = Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
     }
     public void Start()
     {
@@ -25,7 +26,9 @@ public class DatabaseInicializer : MonoBehaviour
         {
             File.Create(dbUriInventory);
             dbConnection2 = new SqliteConnection(dbUriInventory);
+            inventarioBase = new Inventario(idUsuarioInventario);
             CreateDatabase();
+            loading.loadEmpthyInventary(inventarioBase);
         }
         else
         {

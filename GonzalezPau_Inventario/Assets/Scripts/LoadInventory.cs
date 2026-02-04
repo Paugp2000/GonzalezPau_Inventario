@@ -14,5 +14,9 @@ public class LoadInventory : MonoBehaviour
     {
         inventarioActual = puntoDeGuardado.loadInvenario();
     }
+    public void loadEmpthyInventary(Inventario inventario)
+    {
+        inventarioActual = inventario;
+    }
 
 }

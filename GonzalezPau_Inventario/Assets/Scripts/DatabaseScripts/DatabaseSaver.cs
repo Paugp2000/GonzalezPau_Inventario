@@ -60,7 +60,7 @@ public class DatabaseSaver : MonoBehaviour
     }
     public Inventario loadInvenario()
     {
-        Inventario inventarioActual = new Inventario(idUsuarioInvetario);
+        Inventario inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
         dbConnection3.Open();
         for (int i = 0; i < 9; i++) 
         {
