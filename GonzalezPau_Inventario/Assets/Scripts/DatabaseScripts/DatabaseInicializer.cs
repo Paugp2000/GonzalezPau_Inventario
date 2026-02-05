@@ -12,13 +12,14 @@ public class DatabaseInicializer : MonoBehaviour
 {
     public int idUsuarioInventario;
     private IDbConnection dbConnection2;
-    private string dbUriInventory;
+    private string dbUriInventory, databasePath;
     public LoadInventory loading;
     private Inventario inventarioBase;
     private void Awake()
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
-        dbUriInventory = Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
+        databasePath = Application.dataPath + "/Inventory" + idUsuarioInventario + ".sqlite";
+        dbUriInventory = "URI=file:"+Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
     }
     public void Start()
     {

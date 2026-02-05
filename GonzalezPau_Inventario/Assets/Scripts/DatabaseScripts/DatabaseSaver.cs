@@ -10,17 +10,18 @@ public class DatabaseSaver : MonoBehaviour
 {
     public DatabaseInicializer DatabaseInicializer;
     private int idUsuarioInvetario;
-    private string databasePath;
+    private string databasePath, dbUriInventory;
     private IDbConnection dbConnection3;
     public LoadInventory loader;
     private void Awake()
     {
         idUsuarioInvetario = DatabaseInicializer.idUsuarioInventario;
-        databasePath = "URI=file:" + Application.dataPath + "/Inventory" + idUsuarioInvetario + ".sqlite";
+        databasePath = Application.dataPath + "/Inventory" + idUsuarioInvetario + ".sqlite";
+        dbUriInventory = "URI=file:" + Application.dataPath + "/Inventory" + idUsuarioInvetario + ".sqlite";
     }
     private void Start()
     {
-        dbConnection3 = new SqliteConnection(databasePath);
+        dbConnection3 = new SqliteConnection(dbUriInventory);
     }
 
     public void AddItemToDatabase(Item itemAñadido)
