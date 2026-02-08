@@ -8,15 +8,17 @@ public class LoadInventory : MonoBehaviour
     public Item[] allItems;
     public Inventario inventarioActual;
     public DatabaseInicializer databaseInicializer;
-    public Transform[] espacioInventarioParent = new Transform[6];
     public DatabaseSaver puntoDeGuardado;
+    public DropArea dropArea;
     public void LoadIfDatabaseExists()
     {
         inventarioActual = puntoDeGuardado.loadInvenario();
+        dropArea.EstablecerInventario (inventarioActual);
     }
     public void loadEmpthyInventary(Inventario inventario)
     {
         inventarioActual = inventario;
     }
+    
 
 }

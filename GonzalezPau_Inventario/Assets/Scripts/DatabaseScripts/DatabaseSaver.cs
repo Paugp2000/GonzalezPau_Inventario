@@ -11,7 +11,7 @@ public class DatabaseSaver : MonoBehaviour
     public DatabaseInicializer DatabaseInicializer;
     private int idUsuarioInvetario;
     private string databasePath, dbUriInventory;
-    private IDbConnection dbConnection3;
+    private IDbConnection dbConnection3, dbConnection4;
     public LoadInventory loader;
     private void Awake()
     {
@@ -62,12 +62,13 @@ public class DatabaseSaver : MonoBehaviour
     public Inventario loadInvenario()
     {
         Inventario inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
-        dbConnection3.Open();
+
+        dbConnection4 = new SqliteConnection(dbUriInventory);
         for (int i = 0; i < 9; i++) 
         {
             try
             {
-                IDbCommand cmdLoad = dbConnection3.CreateCommand();
+                IDbCommand cmdLoad = dbConnection4.CreateCommand();
                 cmdLoad.CommandText = "SELECT idItem FROM Items WHERE idItem = @param AND isInInventory = TRUE;";
                 cmdLoad.Parameters.Add(new SqliteParameter("@param", i));
                 using (IDataReader reader = cmdLoad.ExecuteReader())

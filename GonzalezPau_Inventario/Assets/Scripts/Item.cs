@@ -12,4 +12,9 @@ public class Item : MonoBehaviour
     public bool equipado;
     
     public int fuerza;
+
+    public Item returnItem()
+    {
+        return this;
+    }
 }

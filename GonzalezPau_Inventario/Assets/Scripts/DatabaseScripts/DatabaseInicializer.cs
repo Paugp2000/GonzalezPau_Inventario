@@ -23,9 +23,9 @@ public class DatabaseInicializer : MonoBehaviour
     }
     public void Start()
     {
-        if (!File.Exists(dbUriInventory))
+        if (!File.Exists(databasePath))
         {
-            File.Create(dbUriInventory);
+            File.Create(databasePath);
             dbConnection2 = new SqliteConnection(dbUriInventory);
             inventarioBase = new Inventario(idUsuarioInventario);
             CreateDatabase();

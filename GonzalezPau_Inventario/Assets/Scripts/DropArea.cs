@@ -8,8 +8,6 @@ public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
     public Transform objetoEquipableParent;
-    private string nombreObjetoIntroducido;
-    private int fuerzaObjeto;
     public int numberOfDropArea;
     private Item itemResutante;
     private Inventario inventario;
@@ -18,9 +16,9 @@ public class DropArea : MonoBehaviour, IDropHandler
     public Canvas canvas;
     public DatabaseSaver sistemaDeGuardado;
 
-    void Start()
+    public void EstablecerInventario(Inventario inventarioActual)
     {
-        inventario = inventory.inventarioActual;
+        inventario = inventarioActual;  
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -29,8 +27,8 @@ public class DropArea : MonoBehaviour, IDropHandler
         {
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
-            Debug.Log(nombreObjetoIntroducido);
-            itemResutante = dropped.GetComponent<Item>();
+            itemResutante = dropped.GetComponent<Item>().returnItem();
+            Debug.Log(itemResutante.nombre);
             inventario.items.Add(itemResutante);
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
@@ -45,5 +43,4 @@ public class DropArea : MonoBehaviour, IDropHandler
             Debug.Log("Error");
         }
     }
- 
 }
