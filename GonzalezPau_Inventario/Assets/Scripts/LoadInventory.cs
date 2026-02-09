@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LoadInventory : MonoBehaviour
 {
-    public Item[] allItems;
+    public ClassItem[] allItems;
     public Inventario inventarioActual;
     public DatabaseInicializer databaseInicializer;
     public DatabaseSaver puntoDeGuardado;

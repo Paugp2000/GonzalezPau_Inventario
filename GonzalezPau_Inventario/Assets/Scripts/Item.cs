@@ -10,11 +10,11 @@ public class Item : MonoBehaviour
     public string nombre;
 
     public bool equipado;
-    
+
     public int fuerza;
 
-    public Item returnItem()
+    public ClassItem createItem()
     {
-        return this;
+         return new ClassItem (id_item, nombre, equipado, fuerza);
     }
 }

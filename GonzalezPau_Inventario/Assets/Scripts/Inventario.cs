@@ -11,5 +11,5 @@ public class Inventario
     }
     public int id_inventario { get; set; }
 
-    public List<Item> items { get; set; }
+    public List<ClassItem> items { get; set; }
 }

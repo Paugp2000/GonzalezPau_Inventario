@@ -9,7 +9,7 @@ public class DropArea : MonoBehaviour, IDropHandler
     public string requiredTag = "Draggable";
     public Transform objetoEquipableParent;
     public int numberOfDropArea;
-    private Item itemResutante;
+    private ClassItem itemResutante;
     private Inventario inventario;
     public DatabaseInicializer databaseInicializer;
     public LoadInventory inventory;
@@ -27,7 +27,7 @@ public class DropArea : MonoBehaviour, IDropHandler
         {
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
-            itemResutante = dropped.GetComponent<Item>().returnItem();
+            itemResutante = dropped.GetComponent<Item>().createItem();
             Debug.Log(itemResutante.nombre);
             inventario.items.Add(itemResutante);
             sistemaDeGuardado.AddItemToDatabase(itemResutante);

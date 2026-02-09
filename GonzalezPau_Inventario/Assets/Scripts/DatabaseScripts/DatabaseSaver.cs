@@ -24,7 +24,7 @@ public class DatabaseSaver : MonoBehaviour
         dbConnection3 = new SqliteConnection(dbUriInventory);
     }
 
-    public void AddItemToDatabase(Item itemAñadido)
+    public void AddItemToDatabase(ClassItem itemAñadido)
     {
         dbConnection3.Open();
         IDbCommand cmdAdd = dbConnection3.CreateCommand();
@@ -43,7 +43,7 @@ public class DatabaseSaver : MonoBehaviour
         }
         dbConnection3.Close();
     }
-    public void RemoveItemFromDatabase(Item itemABorrar)
+    public void RemoveItemFromDatabase(ClassItem itemABorrar)
     {
         dbConnection3.Open();
         IDbCommand cmdRemove = dbConnection3.CreateCommand();
