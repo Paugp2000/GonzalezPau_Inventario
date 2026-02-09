@@ -13,8 +13,4 @@ public class Item : MonoBehaviour
 
     public int fuerza;
 
-    public ClassItem createItem()
-    {
-         return new ClassItem (id_item, nombre, equipado, fuerza);
-    }
 }

@@ -38,6 +38,7 @@ public class DatabaseInicializer : MonoBehaviour
     }
     public void CreateDatabase()
     {
+        dbConnection2 = new SqliteConnection(dbUriInventory);
         dbConnection2.Open();
         IDbCommand cmdInven = dbConnection2.CreateCommand();
         cmdInven.CommandText = "CREATE TABLE IF NOT EXISTS Inventario (" +
