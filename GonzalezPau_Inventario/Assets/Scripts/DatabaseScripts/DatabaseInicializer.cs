@@ -34,23 +34,26 @@ public class DatabaseInicializer : MonoBehaviour
         dbConnection2.Open();
         IDbCommand cmdInven = dbConnection2.CreateCommand();
         cmdInven.CommandText = "CREATE TABLE IF NOT EXISTS Inventario (" +
-                          "FOREIGN KEY (idUsuario) REFERENCES Users.idUsuario);";
+                          "idUsuario INT PRIMARY KEY,"+
+                          "FOREIGN KEY (idUsuario) REFERENCES Users(idUsuario));";
         cmdInven.ExecuteNonQuery();
         IDbCommand cmdItems = dbConnection2.CreateCommand();
         cmdItems.CommandText = "CREATE TABLE IF NOT EXISTS Items (" +
                           "idItem INTERGER PRIMARY KEY,"+
-                          "nombreItem TEXT NOT NULL UNIQUE, "+
+                          "idUsuario INT," +
+                          "nombreItem TEXT NOT NULL UNIQUE, " +
                           "isInInventory BOOLEAN, " +
                           "fuerzaItem INTEGER, "+
-                          "FOREIGN KEY (idUsuario) REFERENCES Inventario.idUsuario);";
+                          "FOREIGN KEY (idUsuario) REFERENCES Inventario(idUsuario));";
         cmdItems.ExecuteNonQuery();
         IDbCommand cmdAcumItems = dbConnection2.CreateCommand();
         cmdAcumItems.CommandText = "CREATE TABLE IF NOT EXISTS AcuItems (" +
                           "idItem INTERGER PRIMARY KEY," +
+                          "idUsuario INT," +
                           "nombreItem TEXT NOT NULL UNIQUE, " +
                           "cantidadEquip INTEGER, "+
                           "fuerzaQueOtorga INTEGER, "+
-                          "FOREIGN KEY (idUsuario) REFERENCES Inventario.idUsuario);";
+                          "FOREIGN KEY (idUsuario) REFERENCES Inventario(idUsuario));";
         cmdAcumItems.ExecuteNonQuery();
         dbConnection2.Close();
     }

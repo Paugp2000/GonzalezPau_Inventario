@@ -29,7 +29,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
             Debug.Log(itemResutante.nombre);
-            inventario.items.Add(itemResutante);
+            inventario.items.Add(itemResutante.GetComponent<Item>());
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
             if(dropped.transform.parent = canvas.transform)
