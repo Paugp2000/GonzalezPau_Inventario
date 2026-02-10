@@ -19,6 +19,7 @@ public class DropArea : MonoBehaviour, IDropHandler
     public void EstablecerInventario(Inventario inventarioActual)
     {
         inventario = inventarioActual;  
+        inventario.items = inventarioActual.items;
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -29,10 +30,11 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
             Debug.Log(itemResutante.nombre);
-            inventario.items.Add(itemResutante.GetComponent<Item>());
+            inventario.items.Add(itemResutante);
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
-            if(dropped.transform.parent = canvas.transform)
+
+            if(dropped.transform.parent == canvas.transform)
             {
                 inventario.items.Remove(itemResutante);
                 sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);    
