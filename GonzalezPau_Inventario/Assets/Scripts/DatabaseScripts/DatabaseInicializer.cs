@@ -18,23 +18,15 @@ public class DatabaseInicializer : MonoBehaviour
     private void Awake()
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
-        databasePath = Application.dataPath + "/Inventory" + idUsuarioInventario + ".sqlite";
-        dbUriInventory = "URI=file:"+Application.dataPath + "/Inventory" + idUsuarioInventario+ ".sqlite";
+        dbUriInventory = "URI=file:" + Application.dataPath + "/MyDatabase.sqlite";
     }
     public void Start()
     {
-        if (!File.Exists(databasePath))
-        {
-            File.Create(databasePath);
             dbConnection2 = new SqliteConnection(dbUriInventory);
             inventarioBase = new Inventario(idUsuarioInventario);
+            dbConnection2.Open();
             CreateDatabase();
             loading.loadEmpthyInventary(inventarioBase);
-        }
-        else
-        {
-            loading.LoadIfDatabaseExists();
-        }
     }
     public void CreateDatabase()
     {
@@ -42,8 +34,7 @@ public class DatabaseInicializer : MonoBehaviour
         dbConnection2.Open();
         IDbCommand cmdInven = dbConnection2.CreateCommand();
         cmdInven.CommandText = "CREATE TABLE IF NOT EXISTS Inventario (" +
-                          "idUsuario INTEGER PRIMARY KEY, " +
-                          "nombreUsuario TEXT NOT NULL UNIQUE);";
+                          "FOREIGN KEY (idUsuario) REFERENCES Users.idUsuario);";
         cmdInven.ExecuteNonQuery();
         IDbCommand cmdItems = dbConnection2.CreateCommand();
         cmdItems.CommandText = "CREATE TABLE IF NOT EXISTS Items (" +
