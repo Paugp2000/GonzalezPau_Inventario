@@ -29,7 +29,7 @@ public class LoginSQLController : MonoBehaviour
         dbConnection.Open();
         IDbCommand cmd = dbConnection.CreateCommand();
         cmd.CommandText =
-            "CREATE TABLE IF NOT EXISTS Users (" +
+            "CREATE TABLE IF NOT EXISTS Registro (" +
             "UserID INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "Username TEXT NOT NULL UNIQUE, " +
             "Password TEXT NOT NULL CHECK (LENGTH(Password) >= 8));";
@@ -60,7 +60,7 @@ public class LoginSQLController : MonoBehaviour
         dbConnection.Open();
         using (IDbCommand cmd = dbConnection.CreateCommand())
         {
-            cmd.CommandText = "INSERT INTO Users (Username, Password) VALUES (@user, @pass)";
+            cmd.CommandText = "INSERT INTO Registro (Username, Password) VALUES (@user, @pass)";
             cmd.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
             cmd.Parameters.Add(new SqliteParameter("@pass", contraseña.text));
 
@@ -84,7 +84,7 @@ public class LoginSQLController : MonoBehaviour
 
         using (IDbCommand cmd = dbConnection.CreateCommand())
         {
-            cmd.CommandText = "SELECT password FROM Users WHERE Username = " + userNameBetweenDots + ";";
+            cmd.CommandText = "SELECT password FROM Registro WHERE Username = " + userNameBetweenDots + ";";
             //cmd.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
 
             using (IDataReader reader = cmd.ExecuteReader())
@@ -101,7 +101,7 @@ public class LoginSQLController : MonoBehaviour
                 {
                     using (IDbCommand cmr = dbConnection.CreateCommand())
                     {
-                        cmr.CommandText = "SELECT UserID FROM Users WHERE Username = @User";
+                        cmr.CommandText = "SELECT UserID FROM Registro WHERE Username = @User";
                         cmr.Parameters.Add(new SqliteParameter("@user", nombreUsuario.text));
 
                         IDataReader reader2 = cmr.ExecuteReader();

@@ -10,14 +10,13 @@ public class DatabaseSaver : MonoBehaviour
 {
     public DatabaseInicializer DatabaseInicializer;
     private int idUsuarioInvetario;
-    private string databasePath, dbUriInventory;
+    private string dbUriInventory;
     private IDbConnection dbConnection3, dbConnection4;
     public LoadInventory loader;
     private void Awake()
     {
         idUsuarioInvetario = DatabaseInicializer.idUsuarioInventario;
-        databasePath = Application.dataPath + "/Inventory" + idUsuarioInvetario + ".sqlite";
-        dbUriInventory = "URI=file:" + Application.dataPath + "/Inventory" + idUsuarioInvetario + ".sqlite";
+        dbUriInventory = "URI=file:" + Application.dataPath + "/MyDatabase.sqlite";
     }
     private void Start()
     {
@@ -28,8 +27,8 @@ public class DatabaseSaver : MonoBehaviour
     {
         dbConnection3.Open();
         IDbCommand cmdAdd = dbConnection3.CreateCommand();
-        cmdAdd.CommandText = "INSERT INTO Items (idItem, nombreItem, isInInventory, fuerzaItem) " +
-                             "VAULES (@idItem, @nombreItem, TRUE, @fuerzaItem);";
+        cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, fuerzaItem) " +
+                             "VAULES (@idItem, @nombreItem, equipable, @fuerzaItem);";
         cmdAdd.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
         cmdAdd.Parameters.Add(new SqliteParameter("@nombreItem", itemAñadido.nombre));
         cmdAdd.Parameters.Add(new SqliteParameter("@fuerzaItem", itemAñadido.fuerza));
@@ -47,7 +46,7 @@ public class DatabaseSaver : MonoBehaviour
     {
         dbConnection3.Open();
         IDbCommand cmdRemove = dbConnection3.CreateCommand();
-        cmdRemove.CommandText = "DELETE FROM Items WHERE idItem = @idItemRemove);";
+        cmdRemove.CommandText = "DELETE FROM Items WHERE idObjeto = @idItemRemove);";
         cmdRemove.Parameters.Add(new SqliteParameter("@idItemRemove", itemABorrar.id_item));
         try
         {
@@ -69,7 +68,7 @@ public class DatabaseSaver : MonoBehaviour
             try
             {
                 IDbCommand cmdLoad = dbConnection4.CreateCommand();
-                cmdLoad.CommandText = "SELECT idItem FROM Items WHERE idItem = @param AND isInInventory = TRUE;";
+                cmdLoad.CommandText = "SELECT idObjeto FROM Objetos, InventarioObjeto WHERE idObjeto = @param AND InventarioObjeto.isInInventory = TRUE;";
                 cmdLoad.Parameters.Add(new SqliteParameter("@param", i));
                 using (IDataReader reader = cmdLoad.ExecuteReader())
                 {
