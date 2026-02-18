@@ -5,6 +5,7 @@ using System.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class LoginSQLController : MonoBehaviour
 {
@@ -19,12 +20,19 @@ public class LoginSQLController : MonoBehaviour
 
     private void Start()
     {
-        dbUri = "URI=file:" + Application.dataPath + "/MyDatabase.sqlite";
-        dbConnection = new SqliteConnection(dbUri);
-        createDatabase();
+        AssertFolder();
+        dbConnection = new SqliteConnection(DBCommons.dbUri);
+        CreateDatabaseIfNecessary();
+    }
+    private void AssertFolder()
+    {
+        if (!Directory.Exists(DBCommons.dbFolderPath))
+        {
+            Directory.CreateDirectory(DBCommons.dbFolderPath);
+        }
     }
 
-    public void createDatabase()
+    public void CreateDatabaseIfNecessary()
     {
         dbConnection.Open();
         IDbCommand cmd = dbConnection.CreateCommand();

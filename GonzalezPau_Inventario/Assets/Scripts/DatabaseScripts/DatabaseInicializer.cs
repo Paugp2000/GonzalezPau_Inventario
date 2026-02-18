@@ -7,35 +7,36 @@ using System.Data;
 using System;
 using Mono.Data.Sqlite;
 using System.Data.Common;
+using UnityEngine.WSA;
 
 public class DatabaseInicializer : MonoBehaviour
 {
     public int idUsuarioInventario;
     private IDbConnection dbConnection2;
-    private string dbUriInventory, databasePath;
     public LoadInventory loading;
     private Inventario inventarioBase;
     private void Awake()
     {
         idUsuarioInventario = LoginSQLController.idUsuario;
-        dbUriInventory = "URI=file:" + Application.dataPath + "/MyDatabase.sqlite";
     }
     public void Start()
     {
-            dbConnection2 = new SqliteConnection(dbUriInventory);
-            inventarioBase = new Inventario(idUsuarioInventario);
-            dbConnection2.Open();
-            CreateDatabase();
-            loading.LoadIfDatabaseExists();
+        dbConnection2 = new SqliteConnection(DBCommons.dbUri);
+        inventarioBase = new Inventario(idUsuarioInventario);
+        dbConnection2.Open();
+        CreateDatabase();
+        loading.LoadIfDatabaseExists();
     }
+
+
     public void CreateDatabase()
     {
-        dbConnection2 = new SqliteConnection(dbUriInventory);
+        dbConnection2 = new SqliteConnection(DBCommons.dbUri);
         dbConnection2.Open();
         IDbCommand cmdInven = dbConnection2.CreateCommand();
         cmdInven.CommandText = "CREATE TABLE IF NOT EXISTS Inventario (" +
-                          "idInventario INT PRIMARY KEY,"+
-                          "idUsuario INT,"+
+                          "idInventario INT PRIMARY KEY," +
+                          "idUsuario INT," +
                           "FOREIGN KEY (idUsuario) REFERENCES Users(idUsuario));";
         cmdInven.ExecuteNonQuery();
         IDbCommand cmdAcumItems = dbConnection2.CreateCommand();

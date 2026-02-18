@@ -10,17 +10,15 @@ public class DatabaseSaver : MonoBehaviour
 {
     public DatabaseInicializer DatabaseInicializer;
     private int idUsuarioInvetario;
-    private string dbUriInventory;
     private IDbConnection dbConnection3, dbConnection4;
     public LoadInventory loader;
     private void Awake()
     {
         idUsuarioInvetario = DatabaseInicializer.idUsuarioInventario;
-        dbUriInventory = "URI=file:" + Application.dataPath + "/MyDatabase.sqlite";
     }
     private void Start()
     {
-        dbConnection3 = new SqliteConnection(dbUriInventory);
+        dbConnection3 = new SqliteConnection(DBCommons.dbUri);
     }
 
     public void AddItemToDatabase(Item itemAñadido)
@@ -66,7 +64,9 @@ public class DatabaseSaver : MonoBehaviour
     {
         Inventario inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
 
-        dbConnection4 = new SqliteConnection(dbUriInventory);
+        dbConnection4 = new SqliteConnection(DBCommons.dbUri);
+
+        dbConnection4.Open();
         for (int i = 0; i < 9; i++)
         {
             try
@@ -84,6 +84,8 @@ public class DatabaseSaver : MonoBehaviour
                 Debug.Log("Item no disponible en el inventario");
             }
         }
+        dbConnection4.Close();
+
         return inventarioActual;
 
     }
