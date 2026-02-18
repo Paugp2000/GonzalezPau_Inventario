@@ -30,7 +30,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
             Debug.Log("Dropped " + itemResutante.nombre + ", Adding to DB");
-
+            
             inventario.items.Add(itemResutante);
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 

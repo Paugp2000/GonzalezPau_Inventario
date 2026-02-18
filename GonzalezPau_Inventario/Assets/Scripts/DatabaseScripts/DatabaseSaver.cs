@@ -26,7 +26,7 @@ public class DatabaseSaver : MonoBehaviour
         dbConnection3.Open();
         IDbCommand cmdAdd = dbConnection3.CreateCommand();
         cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, poder) " +
-                             "VALUES (@idItem, \"@nombreItem\", \"equipable\", @poder);";
+                             "VALUES (@idItem, @nombreItem, \"equipable\", @poder);";
         cmdAdd.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
         cmdAdd.Parameters.Add(new SqliteParameter("@nombreItem", itemAñadido.nombre));
         cmdAdd.Parameters.Add(new SqliteParameter("@poder", itemAñadido.fuerza));
