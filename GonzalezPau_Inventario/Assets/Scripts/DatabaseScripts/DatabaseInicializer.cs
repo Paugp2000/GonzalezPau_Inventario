@@ -26,7 +26,7 @@ public class DatabaseInicializer : MonoBehaviour
             inventarioBase = new Inventario(idUsuarioInventario);
             dbConnection2.Open();
             CreateDatabase();
-            loading.loadEmpthyInventary(inventarioBase);
+            loading.LoadIfDatabaseExists();
     }
     public void CreateDatabase()
     {

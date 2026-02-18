@@ -15,10 +15,6 @@ public class LoadInventory : MonoBehaviour
         inventarioActual = puntoDeGuardado.loadInvenario();
         dropArea.EstablecerInventario (inventarioActual);
     }
-    public void loadEmpthyInventary(Inventario inventario)
-    {
-        inventarioActual = inventario;
-    }
     
 
 }

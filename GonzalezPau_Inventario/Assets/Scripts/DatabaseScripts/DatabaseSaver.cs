@@ -27,11 +27,15 @@ public class DatabaseSaver : MonoBehaviour
     {
         dbConnection3.Open();
         IDbCommand cmdAdd = dbConnection3.CreateCommand();
-        cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, fuerzaItem) " +
-                             "VAULES (@idItem, @nombreItem, equipable, @fuerzaItem);";
+        cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, poder) " +
+                             "VALUES (@idItem, \"@nombreItem\", \"equipable\", @poder);";
         cmdAdd.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
         cmdAdd.Parameters.Add(new SqliteParameter("@nombreItem", itemAñadido.nombre));
-        cmdAdd.Parameters.Add(new SqliteParameter("@fuerzaItem", itemAñadido.fuerza));
+        cmdAdd.Parameters.Add(new SqliteParameter("@poder", itemAñadido.fuerza));
+
+        
+        Debug.Log(cmdAdd.ToString());
+
         try
         {
             cmdAdd.ExecuteNonQuery();
@@ -63,7 +67,7 @@ public class DatabaseSaver : MonoBehaviour
         Inventario inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
 
         dbConnection4 = new SqliteConnection(dbUriInventory);
-        for (int i = 0; i < 9; i++) 
+        for (int i = 0; i < 9; i++)
         {
             try
             {
@@ -80,7 +84,7 @@ public class DatabaseSaver : MonoBehaviour
                 Debug.Log("Item no disponible en el inventario");
             }
         }
-        return inventarioActual;    
+        return inventarioActual;
 
     }
 }

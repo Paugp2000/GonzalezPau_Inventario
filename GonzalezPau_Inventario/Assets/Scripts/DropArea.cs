@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
-    public Transform objetoEquipableParent;
     public int numberOfDropArea;
     private Item itemResutante;
     private Inventario inventario;
@@ -18,8 +17,9 @@ public class DropArea : MonoBehaviour, IDropHandler
 
     public void EstablecerInventario(Inventario inventarioActual)
     {
-        inventario = inventarioActual;  
+        inventario = inventarioActual;
         inventario.items = inventarioActual.items;
+        inventario.items = new List<Item>();
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -29,15 +29,19 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
-            Debug.Log(itemResutante.nombre);
+            Debug.Log("Dropped " + itemResutante.nombre + ", Adding to DB");
+
             inventario.items.Add(itemResutante);
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
+            Debug.Log("Added to DB");
 
-            if(dropped.transform.parent == canvas.transform)
+            if (dropped.transform.parent == canvas.transform)
             {
                 inventario.items.Remove(itemResutante);
-                sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);    
+                Debug.Log("Remove?");
+                sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);
+                Debug.Log("RemoveFromDB?");
             }
         }
         else
