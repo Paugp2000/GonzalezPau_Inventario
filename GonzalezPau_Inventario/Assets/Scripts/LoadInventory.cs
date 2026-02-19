@@ -9,11 +9,14 @@ public class LoadInventory : MonoBehaviour
     public Inventario inventarioActual;
     public DatabaseInicializer databaseInicializer;
     public DatabaseSaver puntoDeGuardado;
-    public DropArea dropArea;
+    public DropArea [] dropArea;
     public void LoadIfDatabaseExists()
     {
         inventarioActual = puntoDeGuardado.loadInvenario();
-        dropArea.EstablecerInventario (inventarioActual);
+        foreach (DropArea dropAreaO in dropArea)
+        {
+            dropAreaO.EstablecerInventario(inventarioActual);
+        }
     }
     
 

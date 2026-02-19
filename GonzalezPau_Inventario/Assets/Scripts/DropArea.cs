@@ -14,6 +14,7 @@ public class DropArea : MonoBehaviour, IDropHandler
     public LoadInventory inventory;
     public Canvas canvas;
     public DatabaseSaver sistemaDeGuardado;
+    public Transform canvasTransform;
 
     public void EstablecerInventario(Inventario inventarioActual)
     {
@@ -35,14 +36,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             sistemaDeGuardado.AddItemToDatabase(itemResutante);
 
             Debug.Log("Added to DB");
-
-            if (dropped.transform.parent == canvas.transform)
-            {
-                inventario.items.Remove(itemResutante);
-                Debug.Log("Remove?");
-                sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);
-                Debug.Log("RemoveFromDB?");
-            }
+ 
         }
         else
         {
