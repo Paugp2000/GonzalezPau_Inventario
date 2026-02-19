@@ -11,7 +11,14 @@ public class DropBasura : MonoBehaviour, IDropHandler
     private Item itemResutante;
     private Inventario inventario;
     public DatabaseSaver sistemaDeGuardado;
-   
+    public DropArea dropArea;
+
+    public void EstablecerInventario(Inventario inventarioActual)
+    {
+        inventario = inventarioActual;
+        inventario.items = inventarioActual.items;
+        inventario.items = new List<Item>();
+    }
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropped = eventData.pointerDrag;
@@ -21,6 +28,7 @@ public class DropBasura : MonoBehaviour, IDropHandler
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
             inventario = sistemaDeGuardado.loadInvenario();
+            EstablecerInventario(inventario);
             inventario.items.Remove(itemResutante);
             Debug.Log("Removed");
             sistemaDeGuardado.RemoveItemFromDatabase(itemResutante);

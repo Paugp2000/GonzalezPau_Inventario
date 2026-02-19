@@ -31,12 +31,16 @@ public class DatabaseSaver : MonoBehaviour
         cmdAdd.Parameters.Add(new SqliteParameter("@nombreItem", itemAñadido.nombre));
         cmdAdd.Parameters.Add(new SqliteParameter("@poder", itemAñadido.fuerza));
 
+        IDbCommand cmdAdd2 = dbConnection3.CreateCommand();
+        cmdAdd2.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
+        cmdAdd2.CommandText = "INSERT INTO InventarioObjeto (idObjeto, idInventario, isInInventory, cantidad) " +
+                              "VALUES (@idItem, " + idUsuarioInvetario + ", TRUE, 1)";
         
-        Debug.Log(cmdAdd.ToString());
 
         try
         {
             cmdAdd.ExecuteNonQuery();
+            cmdAdd2.ExecuteNonQuery();
         }
         catch
         {
@@ -48,11 +52,15 @@ public class DatabaseSaver : MonoBehaviour
     {
         dbConnection3.Open();
         IDbCommand cmdRemove = dbConnection3.CreateCommand();
-        cmdRemove.CommandText = "DELETE FROM Items WHERE idObjeto = @idItemRemove);";
         cmdRemove.Parameters.Add(new SqliteParameter("@idItemRemove", itemABorrar.id_item));
+        cmdRemove.CommandText = "DELETE FROM Objeto WHERE idObjeto = @idItemRemove;";
+        IDbCommand cmdRemove2 = dbConnection3.CreateCommand();
+        cmdRemove2.Parameters.Add(new SqliteParameter("@idItemRemove", itemABorrar.id_item));
+        cmdRemove2.CommandText = "UPDATE InventarioObjeto SET isInInventory = FALSE WHERE idObjeto = @idItemRemove;";
         try
         {
             cmdRemove.ExecuteNonQuery();
+            cmdRemove2.ExecuteNonQuery();
         }
         catch
         {
