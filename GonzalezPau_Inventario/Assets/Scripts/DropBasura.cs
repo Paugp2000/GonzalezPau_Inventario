@@ -27,7 +27,7 @@ public class DropBasura : MonoBehaviour, IDropHandler
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
-            inventario = sistemaDeGuardado.loadInvenario();
+            inventario = sistemaDeGuardado.devolverInventario();
             EstablecerInventario(inventario);
             inventario.items.Remove(itemResutante);
             Debug.Log("Removed");

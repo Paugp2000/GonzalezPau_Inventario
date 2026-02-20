@@ -13,4 +13,6 @@ public class Item : MonoBehaviour
 
     public int fuerza;
 
+    public int dropZoneGuardado;
+
 }

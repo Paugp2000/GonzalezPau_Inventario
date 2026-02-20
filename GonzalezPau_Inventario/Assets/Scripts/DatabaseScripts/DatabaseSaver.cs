@@ -5,11 +5,13 @@ using System.Data.Common;
 using UnityEngine;
 using Mono.Data.Sqlite;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class DatabaseSaver : MonoBehaviour
 {
     public DatabaseInicializer DatabaseInicializer;
     private int idUsuarioInvetario;
+    private static Inventario inventarioActual;
     private IDbConnection dbConnection3, dbConnection4;
     public LoadInventory loader;
     private void Awake()
@@ -44,7 +46,7 @@ public class DatabaseSaver : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("Item no añadido correctamente");
+            Debug.Log("Item no añadido correctamente");
         }
         dbConnection3.Close();
     }
@@ -70,7 +72,15 @@ public class DatabaseSaver : MonoBehaviour
     }
     public Inventario loadInvenario()
     {
-        Inventario inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
+        if (inventarioActual == null)
+        {
+            inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
+        }
+        else
+        {
+            inventarioActual = devolverInventario();
+        }
+        
 
         dbConnection4 = new SqliteConnection(DBCommons.dbUri);
 
@@ -80,11 +90,17 @@ public class DatabaseSaver : MonoBehaviour
             try
             {
                 IDbCommand cmdLoad = dbConnection4.CreateCommand();
-                cmdLoad.CommandText = "SELECT idObjeto FROM Objetos, InventarioObjeto WHERE idObjeto = @param AND InventarioObjeto.isInInventory = TRUE;";
+                cmdLoad.CommandText = "SELECT idObjeto FROM Objeto, InventarioObjeto WHERE Objeto.idObjeto = @param AND InventarioObjeto.isInInventory = TRUE;";
                 cmdLoad.Parameters.Add(new SqliteParameter("@param", i));
                 using (IDataReader reader = cmdLoad.ExecuteReader())
                 {
-                    inventarioActual.items.Add(loader.allItems[int.Parse(reader.GetString(0))]);
+                    Item itemAñadir = new Item();
+                    itemAñadir.id_item = i;
+                    if (reader.GetInt32(0) == i)
+                    {
+                        inventarioActual.items.Add(itemAñadir);
+                    }
+                    
                 }
             }
             catch
@@ -93,8 +109,20 @@ public class DatabaseSaver : MonoBehaviour
             }
         }
         dbConnection4.Close();
-
+        
         return inventarioActual;
 
+    }
+    public List<Item> loadItems()
+    {
+       return inventarioActual.items;
+    }
+    public Inventario devolverInventario()
+    {
+        return inventarioActual;
+    }
+    public void Salir()
+    {
+        SceneManager.LoadScene("LoginScene");
     }
 }

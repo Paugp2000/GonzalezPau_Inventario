@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LoadInventory : MonoBehaviour
 {
-    public Item[] allItems;
+    
     public Inventario inventarioActual;
     public DatabaseInicializer databaseInicializer;
     public DatabaseSaver puntoDeGuardado;
@@ -15,9 +15,10 @@ public class LoadInventory : MonoBehaviour
         inventarioActual = puntoDeGuardado.loadInvenario();
         foreach (DropArea dropAreaO in dropArea)
         {
-            dropAreaO.EstablecerInventario(inventarioActual);
+            dropAreaO.EstablecerInventario();
         }
+      
     }
-    
+  
 
 }

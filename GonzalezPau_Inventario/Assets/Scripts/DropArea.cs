@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DropArea : MonoBehaviour, IDropHandler
 {
     public string requiredTag = "Draggable";
     public int numberOfDropArea;
     private Item itemResutante;
+    public static Item itemAssignado;
     private Inventario inventario;
     public DatabaseInicializer databaseInicializer;
     public LoadInventory inventory;
@@ -16,11 +18,26 @@ public class DropArea : MonoBehaviour, IDropHandler
     public DatabaseSaver sistemaDeGuardado;
     public Transform canvasTransform;
 
-    public void EstablecerInventario(Inventario inventarioActual)
+    public void EstablecerInventario()
     {
-        inventario = inventarioActual;
-        inventario.items = inventarioActual.items;
-        inventario.items = new List<Item>();
+        inventario = sistemaDeGuardado.devolverInventario();
+        inventario.items = sistemaDeGuardado.loadItems();   
+        if (inventario.items != null )
+        {
+            foreach (Item item in inventario.items)
+            {
+                if (itemAssignado.dropZoneGuardado == item.dropZoneGuardado)
+                {
+                    itemAssignado = item;   
+                    item.transform.position = this.transform.position;
+                }
+            }
+        }
+        else
+        {
+            inventario.items = new List<Item>();
+        }
+        
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -30,6 +47,8 @@ public class DropArea : MonoBehaviour, IDropHandler
             dropped.transform.SetParent(transform);
             dropped.GetComponentInChildren<RectTransform>().anchoredPosition = Vector2.zero;
             itemResutante = dropped.GetComponent<Item>();
+            itemResutante.dropZoneGuardado = numberOfDropArea;
+            itemAssignado = itemResutante;
             Debug.Log("Dropped " + itemResutante.nombre + ", Adding to DB");
             
             inventario.items.Add(itemResutante);
