@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6896650629514552733}
   - component: {fileID: 553614105636504856}
   - component: {fileID: 8989541054503902589}
+  - component: {fileID: 4978263373281633420}
   m_Layer: 0
   m_Name: 'ObjetoEquipable '
   m_TagString: Draggable
@@ -47,7 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetosEquipablesParent: {fileID: 6896650629514552733}
-  espacioInventarioParent: {fileID: 0}
+  espacioInventarioParent:
+  - {fileID: 0}
+  itemRel: {fileID: 0}
 --- !u!225 &8989541054503902589
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -60,6 +63,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4978263373281633420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888754551559553053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4160cbe8047c41b1e27939579b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id_item: 0
+  nombre: 
+  equipado: 0
+  fuerza: 0
+  dropZoneGuardado: 0
 --- !u!1 &3317417482688409987
 GameObject:
   m_ObjectHideFlags: 0

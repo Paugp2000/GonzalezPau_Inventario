@@ -14,6 +14,7 @@ public class DatabaseSaver : MonoBehaviour
     private static Inventario inventarioActual;
     private IDbConnection dbConnection3, dbConnection4;
     public LoadInventory loader;
+ 
     private void Awake()
     {
         idUsuarioInvetario = DatabaseInicializer.idUsuarioInventario;
@@ -27,11 +28,12 @@ public class DatabaseSaver : MonoBehaviour
     {
         dbConnection3.Open();
         IDbCommand cmdAdd = dbConnection3.CreateCommand();
-        cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, poder) " +
-                             "VALUES (@idItem, @nombreItem, \"equipable\", @poder);";
+        cmdAdd.CommandText = "INSERT INTO Objeto (idObjeto, nombreItem, tipo, numeroDeDropZone, poder) " +
+                             "VALUES (@idItem, @nombreItem, \"equipable\", @numDeDropZone, @poder);";
         cmdAdd.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
         cmdAdd.Parameters.Add(new SqliteParameter("@nombreItem", itemAñadido.nombre));
         cmdAdd.Parameters.Add(new SqliteParameter("@poder", itemAñadido.fuerza));
+        cmdAdd.Parameters.Add(new SqliteParameter("@numDeDropZone", itemAñadido.dropZoneGuardado));
 
         IDbCommand cmdAdd2 = dbConnection3.CreateCommand();
         cmdAdd2.Parameters.Add(new SqliteParameter("@idItem", itemAñadido.id_item));
@@ -46,7 +48,7 @@ public class DatabaseSaver : MonoBehaviour
         }
         catch
         {
-            Debug.Log("Item no añadido correctamente");
+            Debug.LogError("Item no añadido correctamente");
         }
         dbConnection3.Close();
     }
@@ -75,6 +77,7 @@ public class DatabaseSaver : MonoBehaviour
         if (inventarioActual == null)
         {
             inventarioActual = new Inventario(DatabaseInicializer.idUsuarioInventario);
+            inventarioActual.items = new List<Item>();
         }
         else
         {
@@ -83,36 +86,45 @@ public class DatabaseSaver : MonoBehaviour
         
 
         dbConnection4 = new SqliteConnection(DBCommons.dbUri);
-
         dbConnection4.Open();
-        for (int i = 0; i < 9; i++)
+
+        IDbCommand cmdLoad = dbConnection4.CreateCommand();
+        cmdLoad.CommandText =
+            "SELECT Objeto.idObjeto " +
+            "FROM Objeto " +
+            "JOIN InventarioObjeto ON Objeto.idObjeto = InventarioObjeto.idObjeto " +
+            "WHERE InventarioObjeto.idInventario = @idUsuario " +
+            "AND InventarioObjeto.isInInventory = TRUE;";
+       
+        cmdLoad.Parameters.Add(new SqliteParameter("@idUsuario", DatabaseInicializer.idUsuarioInventario));
+
+        using (IDataReader reader = cmdLoad.ExecuteReader())
         {
-            try
+            while (reader.Read())
             {
-                IDbCommand cmdLoad = dbConnection4.CreateCommand();
-                cmdLoad.CommandText = "SELECT idObjeto FROM Objeto, InventarioObjeto WHERE Objeto.idObjeto = @param AND InventarioObjeto.isInInventory = TRUE;";
-                cmdLoad.Parameters.Add(new SqliteParameter("@param", i));
-                using (IDataReader reader = cmdLoad.ExecuteReader())
+                GameObject itemAñadir = new GameObject();
+                itemAñadir.AddComponent<Item>();
+                itemAñadir.GetComponent<Item>().id_item = reader.GetInt32(0);
+                Debug.Log(reader.GetInt32(0));
+                inventarioActual.items.Add(itemAñadir.GetComponent<Item>());
+
+                IDbCommand cmdLoadDrop = dbConnection4.CreateCommand();
+                cmdLoadDrop.CommandText =
+                    "SELECT Objeto.numeroDeDropZone FROM Objeto" +
+                    " JOIN InventarioObjeto ON Objeto.idObjeto = InventarioObjeto.idObjeto " +
+                    " WHERE Objeto.idObjeto = " + itemAñadir.GetComponent<Item>().id_item + ";";
+                using (IDataReader reader2 = cmdLoadDrop.ExecuteReader())
                 {
-                    Item itemAñadir = new Item();
-                    itemAñadir.id_item = i;
-                    if (reader.GetInt32(0) == i)
-                    {
-                        inventarioActual.items.Add(itemAñadir);
-                    }
-                    
+                    itemAñadir.GetComponent<Item>().dropZoneGuardado = reader.GetInt32(0);
                 }
             }
-            catch
-            {
-                Debug.Log("Item no disponible en el inventario");
-            }
         }
+    
+            
         dbConnection4.Close();
-        
         return inventarioActual;
-
     }
+
     public List<Item> loadItems()
     {
        return inventarioActual.items;

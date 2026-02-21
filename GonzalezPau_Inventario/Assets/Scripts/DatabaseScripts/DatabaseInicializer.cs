@@ -43,6 +43,7 @@ public class DatabaseInicializer : MonoBehaviour
         cmdAcumItems.CommandText = "CREATE TABLE IF NOT EXISTS Objeto (" +
                           "idObjeto INT PRIMARY KEY," +
                           "nombreItem TEXT NOT NULL UNIQUE, " +
+                          "numeroDeDropZone INTEGER, " +
                           "tipo TEXT CHECK(tipo IN ('equipable','acumulable')) NOT NULL, " +
                           "poder INTEGER);";
         cmdAcumItems.ExecuteNonQuery();
