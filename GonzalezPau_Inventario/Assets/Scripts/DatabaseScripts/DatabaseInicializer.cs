@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using System.Data;
 using System;
 using Mono.Data.Sqlite;
 using System.Data.Common;
-using UnityEngine.WSA;
 
 public class DatabaseInicializer : MonoBehaviour
 {
